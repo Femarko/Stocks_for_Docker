@@ -1,13 +1,11 @@
 FROM python:3.9-alpine
 RUN apk add --no-cache gcc musl-dev linux-headers
 
-WORKDIR src
+WORKDIR stocks_products
 COPY ./requirements.txt .
 RUN pip3 install --no-cahe-dir --upgrade -r requirements.txt
 
-ENV
-
-COPY . /src
+COPY . /stocks_products
 EXPOSE 80
 
-CMD ["python", "manage.py", "migrate", "runserver"]
+CMD python manage.py migrate & python manage.py runserver
