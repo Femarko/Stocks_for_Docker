@@ -10,6 +10,6 @@ RUN pip install -r requirements.txt
 
 #COPY . /stocks_products
 COPY . .
-EXPOSE 5040
+EXPOSE 8000
 
-CMD python manage.py migrate & python manage.py runserver
+CMD python3 manage.py migrate && python3 manage.py runserver
